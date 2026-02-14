@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Appointments</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* Body & Background */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        /* Main Heading */
+        h2 {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #ffffff;
+            font-size: 28px;
+            text-shadow: 1px 2px 4px rgba(0,0,0,0.4);
+        }
+
+        /* Table Container */
+        .table-container {
+            width: 100%;
+            max-width: 1200px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            overflow-x: auto;
+        }
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: linear-gradient(90deg, #4f46e5, #3b82f6);
+            color: #fff;
+        }
+
+        th, td {
+            padding: 14px 18px;
+            text-align: center;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 14px;
+        }
+
+        tbody tr:hover {
+            background: #f0f4ff;
+            transition: 0.3s;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 6px 14px;
+            border: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .btn-update {
+            background-color: #3b82f6;
+        }
+
+        .btn-update:hover {
+            background-color: #2563eb;
+        }
+
+        .btn-delete {
+            background-color: #ef4444;
+        }
+
+        .btn-delete:hover {
+            background-color: #b91c1c;
+        }
+
+        /* Responsive for mobile */
+        @media (max-width: 768px) {
+            th, td {
+                padding: 10px;
+                font-size: 12px;
+            }
+            .btn {
+                padding: 4px 8px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="table-container">
+        <h2>All Appointments</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Appointment ID</th>
+                    <th>Patient ID</th>
+                    <th>Doctor ID</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for api in apintment %}
+                <tr>
+                    <td>{{api.aid}}</td>
+                    <td>{{api.pid}}</td>
+                    <td>{{api.did}}</td>
+                    <td>{{api.date}}</td>
+                    <td>{{api.time}}</td>
+                    <td>{{api.status}}</td>
+                    <td>
+                        <a href="{% url 'Update_appintment_details' %}" class="btn btn-update">Update Date</a>
+                        <a href="{% url 'Update_Appointment_status' %}" class="btn btn-update">Update Status</a>
+                        <a href="{% url 'Delete_appointment' %}" class="btn btn-delete">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

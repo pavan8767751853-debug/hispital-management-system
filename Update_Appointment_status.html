@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Appointment Status</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f6d365, #fda085);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-container {
+            background: #ffffff;
+            padding: 30px 35px;
+            width: 360px;
+            border-radius: 20px;
+            box-shadow: 0px 15px 40px rgba(0,0,0,0.25);
+            text-align: center;
+            animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-container h2 {
+            color: #e76f51;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: 500;
+            color: #555;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #e76f51;
+            box-shadow: 0 0 0 3px rgba(231,111,81,0.2);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            background: linear-gradient(90deg, #e76f51, #f4a261);
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0px 10px 25px rgba(231,111,81,0.3);
+        }
+
+        .icon-title {
+            font-size: 35px;
+            color: #e76f51;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <form method="POST" action="" class="form-container">
+        {% csrf_token %}
+
+        <div class="icon-title">
+            <i class="bi bi-gear-fill"></i>
+        </div>
+
+        <h2>Update Appointment Status</h2>
+
+        <div class="input-group">
+            <label>Appointment ID</label>
+            <input type="number" name="aid" placeholder="Enter appointment ID" value="{{uas.aid}}" required>
+        </div>
+
+        <div class="input-group">
+            <label>Status</label>
+            <input type="text" name="status" placeholder="Enter appointment status" value="{{uas.status}}" required>
+        </div>
+
+        <button type="submit" class="submit-btn">Update Status</button>
+    </form>
+
+</body>
+</html>

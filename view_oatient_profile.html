@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Profile</title>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #74ebd5, #acb6e5);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .profile-container {
+            max-width: 500px;
+            margin: 80px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #1e3a8a;
+        }
+
+        .row {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #374151;
+        }
+
+        .value {
+            color: #111827;
+        }
+
+        .btn {
+            display: block;
+            text-align: center;
+            background: #2563eb;
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: #1d4ed8;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="profile-container">
+    <h2>My Profile</h2>
+
+    <div class="row">
+        <span class="label">Name:</span>
+        <span class="value">{{ patient.pname }}</span>
+    </div>
+
+    
+    <div class="row">
+        <span class="label">email:</span>
+        <span class="value">{{ patient.pemail }}</span>
+    </div>
+
+    <div class="row">
+        <span class="label">Age:</span>
+        <span class="value">{{ patient.page }}</span>
+    </div>
+
+    <div class="row">
+        <span class="label">Mobile:</span>
+        <span class="value">{{ patient.pmob_no }}</span>
+    </div>
+
+    
+    <div class="row">
+        <span class="label">Gender:</span>
+        <span class="value">{{ patient.pgender }}</span>
+    </div>
+
+    <div class="row">
+        <span class="label">Address:</span>
+        <span class="value">{{ patient.address }}</span>
+    </div>
+
+    <a href="{% url '' %}" class="btn">Update Profile</a>
+</div>
+
+</body>
+</html>

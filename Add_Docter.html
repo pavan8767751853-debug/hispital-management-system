@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Doctor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top left, #c7d2fe, transparent 60%),
+                radial-gradient(circle at bottom right, #bae6fd, transparent 60%),
+                linear-gradient(135deg, #eef2ff, #f8fafc);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .card {
+            width: 360px;
+            background: #ffffff;
+            padding: 24px 24px;
+            border-radius: 14px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+            border-top: 5px solid #4f46e5;
+        }
+
+        h3 {
+            text-align: center;
+            margin-bottom: 18px;
+            color: #1e293b;
+            font-weight: 600;
+        }
+
+        label {
+            font-size: 12.5px;
+            color: #475569;
+            font-weight: 500;
+        }
+
+        input {
+            width: 100%;
+            padding: 9px 10px;
+            margin: 4px 0 12px;
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+            font-size: 13px;
+            background: #f8fafc;
+            transition: 0.25s;
+        }
+
+        input:focus {
+            outline: none;
+            background: #ffffff;
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 3px rgba(79,70,229,0.2);
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            background: linear-gradient(90deg, #4f46e5, #6366f1);
+            color: #ffffff;
+            border: none;
+            border-radius: 22px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(79,70,229,0.45);
+        }
+    </style>
+</head>
+<body>
+
+<form method="POST" action="" class="card">
+    {% csrf_token %}
+
+    <h3>Add Doctor</h3>
+
+    <label>Doctor ID</label>
+    <input type="number" name="did" required>
+
+    <label>Doctor Name</label>
+    <input type="text" name="dname" required>
+
+    <label>Email</label>
+    <input type="email" name="demail" required>
+
+    <label>Mobile No</label>
+    <input type="number" name="dmob_no" required>
+
+    <label>Speciality</label>
+    <input type="text" name="speciality" required>
+
+    <label>Experience (Years)</label>
+    <input type="number" name="experience" required>
+
+    <label>Password</label>
+    <input type="number" name="dpassword" required>
+
+    <button type="submit">Add Doctor</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Doctor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background:
+                linear-gradient(rgba(15,23,42,0.75), rgba(15,23,42,0.75)),
+                url("https://images.unsplash.com/photo-1580281657521-1f6b5b1b9d89");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .card {
+            width: 380px;
+            padding: 26px;
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(14px);
+            border-radius: 18px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.35);
+            color: #ffffff;
+        }
+
+        h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        label {
+            font-size: 13px;
+            color: #e5e7eb;
+            font-weight: 500;
+        }
+
+        input {
+            width: 100%;
+            padding: 11px;
+            margin: 6px 0 14px;
+            border-radius: 10px;
+            border: none;
+            background: rgba(255,255,255,0.2);
+            color: #ffffff;
+            font-size: 13px;
+        }
+
+        input::placeholder {
+            color: #e5e7eb;
+        }
+
+        input:focus {
+            outline: none;
+            background: rgba(255,255,255,0.28);
+            box-shadow: 0 0 0 3px rgba(59,130,246,0.4);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(90deg, #3b82f6, #2563eb);
+            color: #ffffff;
+            border: none;
+            border-radius: 26px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(59,130,246,0.6);
+        }
+    </style>
+</head>
+<body>
+
+<form method="POST" action="" class="card">
+    {% csrf_token %}
+
+    <h3>Update Doctor</h3>
+
+    <label>Doctor ID</label>
+    <input type="number" name="did" value="{{doc.did}}" required>
+
+    <label>Doctor Name</label>
+    <input type="text" name="dname" value="{{doc.dname}}" required>
+
+    <label>Doctor Email</label>
+    <input type="email" name="demail" value="{{doc.demail}}" required>
+
+    <label>Mobile Number</label>
+    <input type="number" name="dmob_no" value="{{doc.dmob_no}}" required>
+
+    <label>Speciality</label>
+    <input type="text" name="speciality" value="{{doc.speciality}}" required>
+
+    <label>Experience (Years)</label>
+    <input type="number" name="experience" value="{{doc.experience}}" required>
+
+    <label>Password</label>
+    <input type="password" name="dpassword" value="{{doc.dpassword}}" required>
+
+
+    <button type="submit">Update Doctor</button>
+
+</form>
+
+</body>
+</html>

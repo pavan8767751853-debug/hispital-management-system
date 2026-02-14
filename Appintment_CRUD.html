@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Appointment Management</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body{
+            background:linear-gradient(120deg,#e0f2fe,#f8fafc);
+            font-family:'Segoe UI',sans-serif;
+        }
+
+        .page-title{
+            font-weight:700;
+            color:#0f172a;
+        }
+
+        .crud-card{
+            background:#ffffff;
+            border-radius:20px;
+            padding:30px;
+            text-align:center;
+            box-shadow:0 12px 25px rgba(0,0,0,0.1);
+            transition:0.3s;
+            height:100%;
+        }
+
+        .crud-card:hover{
+            transform:translateY(-10px);
+            box-shadow:0 18px 40px rgba(0,0,0,0.18);
+        }
+
+        .crud-card i{
+            font-size:45px;
+            margin-bottom:15px;
+        }
+
+        .crud-card h5{
+            font-weight:600;
+            margin-bottom:10px;
+        }
+
+        .crud-card p{
+            font-size:14px;
+            color:#64748b;
+        }
+
+        .btn-round{
+            border-radius:30px;
+            padding:8px 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+
+    <!-- Title -->
+    <div class="text-center mb-5">
+        <h2 class="page-title">
+            <i class="fa-solid fa-calendar-check text-warning"></i>
+            Appointment Management
+        </h2>
+        <p class="text-muted">Manage appointments professionally</p>
+    </div>
+
+    <!-- CRUD Cards -->
+    <div class="row g-4">
+
+        <!-- Add -->
+        <div class="col-md-4">
+            <div class="crud-card">
+                <i class="fa-solid fa-plus text-success"></i>
+                <h5>Add Appointment</h5>
+                <p>Create new patient appointment</p>
+                <a href="{% url 'Add_Appointments' %}" class="btn btn-success btn-round">Open</a>
+            </div>
+        </div>
+
+        <!-- View -->
+        <div class="col-md-4">
+            <div class="crud-card">
+                <i class="fa-solid fa-eye text-primary"></i>
+                <h5>View Appointments</h5>
+                <p>See all appointment records</p>
+                <a href="{% url 'Show_all_appintment' %}" class="btn btn-primary btn-round">Open</a>
+            </div>
+        </div>
+
+        <!-- Update Details -->
+        <div class="col-md-4">
+            <div class="crud-card">
+                <i class="fa-solid fa-pen-to-square text-warning"></i>
+                <h5>Update Details</h5>
+                <p>Modify appointment date & time</p>
+                <a href="{% url 'Update_appintment_details' %}" class="btn btn-warning btn-round">Open</a>
+            </div>
+        </div>
+
+        <!-- Update Status -->
+        <div class="col-md-6">
+            <div class="crud-card">
+                <i class="fa-solid fa-toggle-on text-info"></i>
+                <h5>Update Status</h5>
+                <p>Approve / Cancel appointment</p>
+                <a href="{% url 'Update_Appointment_status' %}" class="btn btn-info btn-round">Open</a>
+            </div>
+        </div>
+
+        <!-- Delete -->
+        <div class="col-md-6">
+            <div class="crud-card">
+                <i class="fa-solid fa-trash text-danger"></i>
+                <h5>Delete Appointment</h5>
+                <p>Remove appointment permanently</p>
+                <a href="{% url 'Delete_appointment' %}" class="btn btn-danger btn-round">Delete</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Back Button -->
+    <div class="text-center mt-5">
+        <a href="{% url 'admin_crud' %}" class="btn btn-dark btn-round px-4">
+            ⬅ Back to Admin Dashboard
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

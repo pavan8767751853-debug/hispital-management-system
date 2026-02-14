@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Appointment</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-container {
+            background: #ffffff;
+            padding: 30px 35px;
+            width: 380px;
+            border-radius: 20px;
+            box-shadow: 0px 15px 40px rgba(0,0,0,0.2);
+            text-align: center;
+            animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-container h2 {
+            color: #1d3557;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: 500;
+            color: #555;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #1d3557;
+            box-shadow: 0 0 0 3px rgba(29,53,87,0.2);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            background: linear-gradient(90deg, #457b9d, #1d3557);
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0px 10px 25px rgba(29,53,87,0.3);
+        }
+
+        .icon-title {
+            font-size: 35px;
+            color: #457b9d;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <form method="POST" action="" class="form-container">
+        {% csrf_token %}
+
+        <div class="icon-title">
+            <i class="bi bi-pencil-square"></i>
+        </div>
+
+        <h2>Update Appointment</h2>
+
+        <div class="input-group">
+            <label>Appointment ID</label>
+            <input type="number" name="aid" placeholder="Enter appointment id" value="{{uad.aid}}" required>
+        </div>
+
+        <div class="input-group">
+            <label>Patient ID</label>
+            <input type="number" name="pid" placeholder="Enter patient id" value="{{uad.pid}}">
+        </div>
+
+        <div class="input-group">
+            <label>Doctor ID</label>
+            <input type="number" name="did" placeholder="Enter doctor id" value="{{uad.did}}">
+        </div>
+
+        <div class="input-group">
+            <label>Date</label>
+            <input type="date" name="date" value="{{uad.date}}">
+        </div>
+
+        <div class="input-group">
+            <label>Time</label>
+            <input type="time" name="time" value="{{uad.time}}">
+        </div>
+
+        <button type="submit" class="submit-btn">Update Appointment</button>
+
+    </form>
+
+</body>
+</html>
